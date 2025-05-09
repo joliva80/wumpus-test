@@ -1,0 +1,13 @@
+<header></header>
+<div class="main-view">
+  @if (model.getProperty('state') === GameState.Home) {
+    <app-home [@fadeInOut]/>
+  }
+  @if (model.getProperty('state') === GameState.Game) {
+    <app-game [@fadeInOut]/>
+  }
+  @if (model.getProperty('state') === GameState.GameOver || model.getProperty('state') === GameState.Win) {
+    <app-game-over [@fadeInOut]/>
+  }
+</div>
+<footer></footer>

@@ -1,0 +1,4 @@
+<div class="message-content" [class]="model.getProperty('state') === GameState.Win ? 'win' : 'loose'">
+  <h1>Has {{ model.getProperty('state') === GameState.Win ? 'ganado' : 'perdido' }} la partida!</h1>
+  <button mat-raised-button (click)="resetGameState()">Haz click aquí para empezar de nuevo</button>
+</div>

@@ -1,0 +1,31 @@
+@use '@angular/material' as mat;
+
+$typography: (
+  plain-family: Roboto,
+  bold-weight: 900,
+  medium-weight: 500,
+  regular-weight: 300,
+);
+
+$theme: mat.define-theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$violet-palette,
+      )
+    )
+);
+
+body {
+  margin: 0;
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  @include mat.core();
+  @include mat.all-component-themes($theme);
+}
+
+@include mat.typography-hierarchy($theme);
+
+html {
+  height: 100%;
+}

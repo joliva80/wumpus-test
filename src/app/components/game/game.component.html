@@ -1,0 +1,47 @@
+<div class="info-container">
+  <h3>Leyenda</h3>
+  @for(info of infoElements; let index = $index ; track index) {
+    <div class="info-item">
+      <span [class]=info.picture></span>
+      <span>{{ info.label }}</span>
+    </div>
+  }
+  <div class="info-item">
+    <span>W,A,S,D</span>
+    <span>Controles</span>
+  </div>
+  <div class="info-item">
+    <span>Espacio</span>
+    <span>Disparar</span>
+  </div>
+</div>
+<div class="game-container">
+@for (row of model.getProperty('board'); let index = $index ; track index) {
+  <div class="row">
+    @for (cell of row; track cell.id) {
+      <div class="cell" [class.visible]="cell.state === CellState.Visible || cell.elements.includes(CellPicture.Player)">
+        @for(element of cell.elements; let i = $index ; track i) {
+          <span [class]="element"></span>
+        }
+      </div>
+    }
+  </div>
+}
+</div>
+<div class="info-container">
+  <h3>Información</h3>
+  <div class="info-item">
+    <span>Dirección para disparar</span>
+    <span>{{ model.getProperty('direction') }}</span>
+  </div>
+  <div class="info-item">
+    <span>Número de flechas disponibles:</span>
+    <span>{{ model.getProperty('arrows') }}</span>
+  </div>
+  <h6>Acciones realizadas</h6>
+  <div class="messages-container">
+    @for(message of model.getProperty('messages'); let i = $index ; track i) {
+      <span>{{ message }}</span>
+    }
+  </div>
+</div>

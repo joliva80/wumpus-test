@@ -1,0 +1,23 @@
+<h1>Hunt The Wumpus</h1>
+
+<div class="input-container">
+  <mat-form-field class="example-full-width">
+    <mat-label>Número de celdas</mat-label>
+    <input matInput (change)="updateValue('cells', $event.target)"
+           type="number" maxlength="2" max="10" min="3" [value]="model.getProperty('cells')">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Número de pozos</mat-label>
+    <input matInput (change)="updateValue('pits', $event.target)"
+           type="number" maxlength="1" max="4" min="1" [value]="model.getProperty('pits')">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Cantidad de flechas</mat-label>
+    <input matInput (change)="updateValue('arrows', $event.target)"
+           type="number" maxlength="2" max="3" min="1" [value]="model.getProperty('arrows')">
+  </mat-form-field>
+</div>
+
+<button mat-flat-button (click)="changeGameState()">Empezar</button>
